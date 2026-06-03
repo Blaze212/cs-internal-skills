@@ -1,0 +1,1 @@
+# Shared Skool automation utilities
