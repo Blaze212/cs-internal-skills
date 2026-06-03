@@ -4,19 +4,15 @@
     "name": "Barton Holdridge",
     "email": "bartonholdridge@gmail.com"
   },
-  "description": "Internal Career Systems ops: batch-process and redact screenshots, log wins to the proof sheet",
-  "version": "2.0.0",
+  "metadata": {
+    "description": "Internal Career Systems ops: batch-process and redact screenshots, log wins to the proof sheet",
+    "version": "2.0.0"
+  },
   "plugins": [
     {
       "name": "career-systems-internal",
-      "source": ".",
-      "description": "Internal Career Systems ops: batch-process and redact screenshots, log wins to the proof sheet",
-      "version": "2.0.0",
-      "skills": [
-        "./skills/skool-redaction-workflow",
-        "./skills/skool-redact-images",
-        "./skills/skool-update-proof-log"
-      ]
+      "source": "./",
+      "description": "Internal Career Systems ops: batch-process and redact screenshots, log wins to the proof sheet"
     }
   ]
 }
