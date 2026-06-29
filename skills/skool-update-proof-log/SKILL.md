@@ -131,9 +131,10 @@ EOF
 Print a summary table showing upload status and any issues:
 
 ```
-✅ Outreach Win - Rosh     → all 3 files uploaded, sheet row added
-⚠️  Mindset Win - Day      → PNG/SVG uploaded, Drive 404 on original
-❌  screenshot_xyz.png      → Drive upload failed
+✅ Outreach Win - Rosh Sharma   → all 3 files uploaded, sheet row added
+⚠️  Mindset Win - Day Quinn      → PNG/SVG uploaded, Drive 404 on original
+❌  screenshot_xyz.png           → Drive upload failed
+⚠️  Mindset Win - John Smith      → PNG/SVG uploaded, status column is unknown
 ```
 
 List any items needing user action (missing fields, failed uploads, etc.).

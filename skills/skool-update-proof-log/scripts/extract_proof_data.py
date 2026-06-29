@@ -29,10 +29,10 @@ SYSTEM_PROMPT = """You are a proof log extraction assistant for a career advisor
 Given the text of a Skool community win post, extract proof log data and return it as a JSON object.
 
 Fields to extract:
-- area: classify as exactly one of: Resume, Outreach, Interview, Negotiation, Mindset
-- level: the poster's career level — one of: IC, Manager, Director, VP, Fractional
-- function: the poster's job function — one of: Product, Ops, HR, Marketing, Finance, Sales, Engineering, Legal, Other
-- status: the poster's employment status — one of: Laid off, Employed, Fractional pivot
+- area: classify as exactly one of: Target, Resume, Outreach, Interview, Negotiation, Offer, Mindset
+- level: the poster's career level — exactly one of: IC, Leader, Executive, Fractional
+- function: the poster's job function — exactly one of: CS, Data, Finance, HR, IT, Marketing, Product, Program, Sales, Strat & Ops, UX
+- status: the poster's employment status — exactly one of: Laid Off, Employed, Fractional
 - main_objection: the single fear or belief this win disproves — one of:
     Price, Time, I should know this already, Too introverted, My case is different
 - trigger: what changed or what forced action. Include: the inciting event (e.g. layoff, stalled process), how long they waited or struggled before acting, and what finally prompted them to start. Write 1–2 sentences in past tense.
@@ -44,8 +44,9 @@ Fields to extract:
 Rules:
 - Return ONLY a valid JSON object — no markdown, no commentary, no code fences
 - Use the exact field names listed above
+- For area, level, function, and status: the value MUST be one of the exact allowed options listed above (match the spelling and casing exactly). If you cannot confidently determine which option applies, use an empty string "" — never guess and never invent a new value.
 - artifact_candidate should be a JSON array of strings, one per asset
-- Use "Unknown" only when a field genuinely cannot be inferred from the post text
+- For the remaining free-text fields, use "Unknown" only when a field genuinely cannot be inferred from the post text
 - Never fabricate details not present in the post"""
 
 
