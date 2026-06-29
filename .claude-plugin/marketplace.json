@@ -6,13 +6,14 @@
   },
   "metadata": {
     "description": "Internal Career Systems ops: batch-process and redact screenshots, log wins to the proof sheet",
-    "version": "2.0.0"
+    "version": "2.0.1"
   },
   "plugins": [
     {
       "name": "career-systems-internal",
       "source": "./",
-      "description": "Internal Career Systems ops: batch-process and redact screenshots, log wins to the proof sheet"
+      "description": "Internal Career Systems ops: batch-process and redact screenshots, log wins to the proof sheet",
+      "version": "2.0.1"
     }
   ]
 }

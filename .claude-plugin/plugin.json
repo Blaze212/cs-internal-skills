@@ -1,4 +1,5 @@
 {
   "name": "career-systems-internal",
-  "description": "Internal Career Systems ops: batch-process and redact screenshots, log wins to the proof sheet"
+  "description": "Internal Career Systems ops: batch-process and redact screenshots, log wins to the proof sheet",
+  "version": "2.0.1"
 }

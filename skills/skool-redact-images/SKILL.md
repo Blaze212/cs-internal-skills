@@ -113,11 +113,13 @@ T_F=$(python3 -c "import time; print(round(time.time() - $T0, 1))")
 ### G — Extract proof data (vision pass)
 # Read IMAGE_PATH visually.
 # Transcribe full post text (all paragraphs, preserve line breaks as \n).
-# Extract the poster's first name from the post/profile (NOT hardcoded).
-# Generate friendly title: "<area> Win - <first_name>" where first_name comes from the image.
-# Example: "Outreach Win - Rosh" (not "Outreach Win - Barton")
+# Extract the poster's FULL name (first + last) from the post/profile (NOT hardcoded).
+# Generate friendly title: "<area> Win - <full_name>" where full_name comes from the image.
+# Use the complete name so the proof-sheet hyperlink reads e.g. "Outreach Win - Barton Holdridge.png", not just "Outreach Win".
+# Example: "Outreach Win - Rosh Sharma" (not "Outreach Win" or "Outreach Win - Rosh")
+# If only a first name is visible in the image, fall back to the first name alone.
 POST_TEXT="<transcribed text from image>"
-FRIENDLY_TITLE="<area_from_post> Win - <poster_first_name_from_image>"
+FRIENDLY_TITLE="<area_from_post> Win - <poster_full_name_from_image>"
 
 ### Return result
 Print this exact JSON as the LAST thing. **This JSON will be used directly by the orchestrator—do not hardcode or substitute values.**
@@ -137,10 +139,10 @@ Print this exact JSON as the LAST thing. **This JSON will be used directly by th
     "poster_full_name": "<extracted from image>",
     "post_text": "<transcribed from image>",
     "post_title": "<extracted from image>",
-    "area": "<inferred from post, or 'unknown'>",
-    "level": "<inferred from post, or 'unknown'>",
-    "function": "<inferred from post, or 'unknown'>",
-    "status": "<inferred from post, or 'unknown'>",
+    "area": "<one of: Target | Resume | Outreach | Interview | Negotiation | Offer | Mindset — or '' if undetermined>",
+    "level": "<one of: IC | Leader | Executive | Fractional — or '' if undetermined>",
+    "function": "<one of: CS | Data | Finance | HR | IT | Marketing | Product | Program | Sales | Strat & Ops | UX — or '' if undetermined>",
+    "status": "<one of: Laid Off | Employed | Fractional — or '' if undetermined>",
     "trigger": "<inferred from post, or 'unknown'>",
     "behavior": "<inferred from post, or 'unknown'>",
     "outcome": "<inferred from post, or 'unknown'>",
@@ -166,8 +168,8 @@ Print this exact JSON as the LAST thing. **This JSON will be used directly by th
 Collect result JSON from each subagent. Print a summary table:
 
 ```
-✅ Outreach Win - Rosh          → redacted, proof data extracted
-⚠️  Mindset Win - Day           → redacted, verify FAIL on name bbox
+✅ Outreach Win - Rosh Sharma   → redacted, proof data extracted
+⚠️  Mindset Win - Day Quinn      → redacted, verify FAIL on name bbox
 ❌  screenshot_xyz.png           → redaction failed: [error]
 ```
 
