@@ -7,6 +7,30 @@ Skills:
 - `skool-redact-images` — redacts avatars, names, and @mentions
 - `skool-update-proof-log` — uploads redacted images and appends proof-log rows
 
+## Install via Claude Code
+
+This repo is a Claude Code marketplace. Add the marketplace, then install the
+plugin from it (the install form is `<plugin>@<marketplace>`):
+
+```bash
+# 1. Add the marketplace (owner/repo or full URL)
+/plugin marketplace add Blaze212/cs-internal-skills
+
+# 2. Install the plugin from that marketplace
+/plugin install career-systems-internal@career-systems-internal
+```
+
+Once installed, the skills auto-discover and trigger from natural language.
+
+Useful management commands:
+
+```bash
+/plugin marketplace list            # marketplaces you've added
+/plugin marketplace update career-systems-internal   # pull the latest version
+/plugin marketplace remove career-systems-internal
+/plugin                             # browse / install / uninstall via the UI
+```
+
 ## Releasing updates
 
 This repo is consumed as a Claude Code marketplace plugin. Consumers only pull a
